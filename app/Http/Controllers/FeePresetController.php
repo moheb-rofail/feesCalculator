@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\FeePreset;
+use App\Models\FeePercentage;
+use App\Models\Service;
 
 class FeePresetController extends Controller
 {
@@ -35,6 +37,18 @@ class FeePresetController extends Controller
 
         // إعادة توجيه إلى قائمة الرسوم مع رسالة نجاح
         return redirect()->route('fee_presets.index')->with('success', 'Fee Preset created successfully.');
+    }
+
+    // show fee percentages for every preset..
+    public function show($id)
+    {   
+        $feePreset = FeePreset::findOrFail($id);
+        $services = Service::all(); // Get all services
+        $feePercentages = FeePercentage::with(['feePreset', 'service', 'threshold'])
+                                ->where('fee_preset_id', $id)
+                                ->get()
+                                ->groupBy('process_id'); // Grouping by process_id;
+        return view('fee_presets.show', compact('feePreset', 'feePercentages', 'services'));
     }
 
     // عرض نموذج تحرير رسوم موجودة

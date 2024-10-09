@@ -53,7 +53,10 @@ class CalculateController extends Controller
             return redirect()->back()->with([
                 'fee_percentage' => $feePercentage->percentage,
                 'calculated_fee' => $calculatedFee,
-                'total_amount' => $request->total_amount
+                'total_amount' => $request->total_amount,
+                'service' => $service->name,
+                'preset' => $feePreset->name,
+                'preset_id' => $feePercentage->fee_preset_id
             ]);
         } else {
             return redirect()->back()->withErrors(['msg' => 'No fee percentage found for the selected service, fee preset and threshold.']);

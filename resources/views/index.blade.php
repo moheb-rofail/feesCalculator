@@ -43,7 +43,7 @@
 
     @if(session('calculated_fee'))
         <div class="alert alert-info mt-3">
-            Calculated Fee: ${{ session('calculated_fee') }} for Total Amount: ${{ session('total_amount') }}
+            Calculated Fee: ${{ session('calculated_fee') }} for Total Amount: ${{ session('total_amount')}} and Service: {{session('service')}} and Preset: {{session('preset')}}  <a href="{{route('fee_presets.show', session('preset_id'))}}">Details</a>
         </div>
     @endif
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FeePercentage extends Model
 {
     use HasFactory;
-    protected $fillable = ['fee_preset_id', 'service_id', 'threshold_id', 'percentage'];
+    protected $fillable = ['fee_preset_id', 'service_id', 'threshold_id', 'percentage', 'process_id'];
 
     public function feePreset()
     {

@@ -16,7 +16,7 @@
             @foreach($feePresets as $preset)
                 <tr>
                     <td>{{ $preset->id }}</td>
-                    <td>{{ $preset->name }}</td>
+                    <td><a href="{{route('fee_presets.show', $preset->id)}}">{{ $preset->name }}</a></td>
                     <td>
                         <a href="{{ route('fee_presets.edit', $preset->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('fee_presets.destroy', $preset->id) }}" method="POST" style="display:inline-block;">

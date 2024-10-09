@@ -35,10 +35,6 @@
                       <li class="nav-item">
                         <a class="nav-link" href="{{route('thresholds.index')}}">Thresholds</a>
                       </li>
-
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{route('fee_percentages.index')}}">Fee Percentages</a>
-                      </li>
                     </ul>
                   </div>
             </div>
